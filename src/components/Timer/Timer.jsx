@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 function Timer() {
-  return (
-    <div>Timer</div>
-  )
+  const percentage = 66;
+
+  return <CircularProgressbar value={percentage} text={`${percentage}%`} />;
 }
 
-export default Timer
+export default Timer;
