@@ -19,7 +19,7 @@ function SliderSet({ max, def, type }) {
   const labelStyles = {
     mt: "2",
     ml: "-2.5",
-    fontSize: "md",
+    fontSize: "sm",
   };
 
   return (
@@ -44,7 +44,7 @@ function SliderSet({ max, def, type }) {
 
         value={sliderValue}
         textAlign="center"
-        bg="blue.500"
+        bg="#0267C1"
         color="white"
         mt="-10"
         ml="-5"
