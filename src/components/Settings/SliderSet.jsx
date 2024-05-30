@@ -5,36 +5,43 @@ import {
   SliderThumb,
   SliderMark,
 } from "@chakra-ui/react";
-import { useState } from "react";
 
-function SliderSet({max, def}) {
-  const [sliderValue, setSliderValue] = useState(def);
+import { SettingsContext } from "../../context/SettingsContext";
+import { useContext } from "react";
+
+function SliderSet({ max, def, type }) {
+  const { workMinutes, setWorkMinutes, breakMinutes, setBreakMinutes } =
+    useContext(SettingsContext);
+
+  const sliderValue = type == "work" ? workMinutes : breakMinutes;
+  const setSliderValue = type == "work" ? setWorkMinutes : setBreakMinutes;
 
   const labelStyles = {
     mt: "2",
     ml: "-2.5",
-    fontSize: "sm",
+    fontSize: "md",
   };
 
   return (
     <Slider
       aria-label="slider-ex-6"
-      defaultValue={def} // Valor inicial ajustado
+      defaultValue={def}
       min={0}
-      max={max} 
+      max={max}
       step={1}
       onChange={(val) => setSliderValue(val)}
     >
-      <SliderMark value={max/3} {...labelStyles}>
-        {max/3}:00
+      <SliderMark value={max / 3} {...labelStyles}>
+        {max / 3}
       </SliderMark>
-      <SliderMark value={(max/3)*2} {...labelStyles}>
-        {(max/3)*2}:00
+      <SliderMark value={(max / 3) * 2} {...labelStyles}>
+        {(max / 3) * 2}
       </SliderMark>
       <SliderMark value={max} {...labelStyles}>
-        {max}:00
+        {max}
       </SliderMark>
       <SliderMark
+
         value={sliderValue}
         textAlign="center"
         bg="blue.500"
@@ -43,7 +50,7 @@ function SliderSet({max, def}) {
         ml="-5"
         w="12"
       >
-        {sliderValue}:00 
+        {sliderValue}:00
       </SliderMark>
       <SliderTrack>
         <SliderFilledTrack />

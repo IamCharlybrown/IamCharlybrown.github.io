@@ -1,16 +1,24 @@
+import Backbutton from "./Backbutton";
 import SliderSet from "./SliderSet";
+import {useContext} from 'react'
+import {SettingsContext} from '../../context/SettingsContext'
 
 function Settings() {
+
+  const settingsInfo = useContext(SettingsContext)
   return (
     <div className="flex flex-col">
-      <label className="text-xl">Settings:</label>
+      <div>
+        <Backbutton/>
+        <label className="text-xl mx-2">Settings</label>
+      </div>
       <div className="mb-11 mt-6">
-        <label>Working time: </label>
-        <SliderSet max={60} def={25}/>
+        <h2 className="mb-10 text-md">Working time: </h2>
+        <SliderSet max={60} def={settingsInfo.workMinutes} type="work"/>
       </div>
       <div>
-        <label>Brake time: </label>
-        <SliderSet max={15} def={5}/>
+        <h2 className="mb-10 text-md">Brake time: </h2>
+        <SliderSet max={15} def={settingsInfo.breakMinutes} type="break"/>
       </div>
     </div>
   );
