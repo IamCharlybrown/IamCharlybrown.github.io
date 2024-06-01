@@ -9,6 +9,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import AddProyectButton from "./AddProyectButton";
+import CloseFormButton from "./CloseFormButton";
 import { ProyectContext } from "../../context/ProyectContext";
 
 function ProyectForm() {
@@ -27,8 +28,8 @@ function ProyectForm() {
     e.preventDefault();
     createProyect(title, platform);
     setTitle("");
-    setPlatform(""); 
-    setShowForm(!showForm); 
+    setPlatform("");
+    setShowForm(!showForm);
   }
 
   return (
@@ -38,8 +39,12 @@ function ProyectForm() {
           <Heading as="h2" size="lg" className="text-2xl pb-2 font-semibold">
             Agrega Tus Cursos!
           </Heading>
-          <Button colorScheme="green" ml={4} onClick={handleShowForm}>
-            <AddProyectButton />
+          <Button
+            colorScheme={showForm ? "yellow" : "green"}
+            ml={4}
+            onClick={handleShowForm}
+          >
+            {showForm ? <CloseFormButton /> : <AddProyectButton />}
           </Button>
         </Flex>
       </Box>
@@ -48,11 +53,10 @@ function ProyectForm() {
           <Box>
             <Input
               width={{ base: "100%", md: "79.8%" }}
-              placeholder="Agregar nuevo curso"
+              placeholder="Agrega un nuevo curso"
               onChange={(e) => setTitle(e.target.value)}
               value={title}
               marginBottom={5}
-              
             ></Input>
             <Textarea
               width={{ base: "100%", md: "79.8%" }}
@@ -60,10 +64,11 @@ function ProyectForm() {
               onChange={(e) => setPlatform(e.target.value)}
               value={platform}
               marginBottom={5}
-              
             ></Textarea>
             <Box>
-              <Button colorScheme="green" type="submit">Guardar</Button>
+              <Button colorScheme="green" type="submit">
+                Guardar
+              </Button>
             </Box>
           </Box>
         </form>
