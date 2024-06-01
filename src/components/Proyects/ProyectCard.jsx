@@ -9,12 +9,26 @@ import {
   Heading,
   Text,
 } from "@chakra-ui/react";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 function ProyectCard({ proyect }) {
   const { deleteProyect } = useContext(ProyectContext);
 
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id: proyect.id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
+
   return (
     <Card
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
       direction={{ base: "column", sm: "row" }}
       overflow="hidden"
       variant="outline"

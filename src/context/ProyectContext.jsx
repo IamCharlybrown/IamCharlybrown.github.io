@@ -10,10 +10,10 @@ export function ProyectContextProvider(props) {
   }, []);
 
   function createProyect(title, platform) {
-    setProyects([
-      ...proyects,
+    setProyects((prevProyects) => [
+      ...prevProyects,
       {
-        id: proyects.length,
+        id: prevProyects.length,
         title: title,
         platform: platform,
         img: "https://www.lacorformacion.com/wp-content/uploads/curso-por-defecto.jpg",
@@ -21,12 +21,19 @@ export function ProyectContextProvider(props) {
     ]);
   }
 
+  
   function deleteProyect(proyectID) {
-    setProyects(proyects.filter((proyect) => proyect.id !== proyectID));
+    setProyects((prevProyects) => {
+      const updatedProyects = prevProyects.filter((proyect) => proyect.id !== proyectID);
+      return updatedProyects;
+    });
   }
 
+
   return (
-    <ProyectContext.Provider value={{ proyects, createProyect, deleteProyect }}>
+    <ProyectContext.Provider
+      value={{ proyects, setProyects, createProyect, deleteProyect }}
+    >
       {props.children}
     </ProyectContext.Provider>
   );
