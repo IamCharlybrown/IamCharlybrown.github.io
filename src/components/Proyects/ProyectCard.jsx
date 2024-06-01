@@ -34,7 +34,7 @@ function ProyectCard({ proyect }) {
         <CardBody>
           <Heading size="md">{proyect.title}</Heading>
 
-          <Text py="2">-{proyect.platform}</Text>
+          <Text py="2">{proyect.platform}</Text>
           <Button variant="solid" colorScheme="blue" marginEnd={4}>
             Planificar
           </Button>

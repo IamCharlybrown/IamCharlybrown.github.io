@@ -53,7 +53,7 @@ function ProyectForm() {
           <Box>
             <Input
               width={{ base: "100%", md: "79.8%" }}
-              placeholder="Agregar nuevo curso"
+              placeholder="Agrega un nuevo curso"
               onChange={(e) => setTitle(e.target.value)}
               value={title}
               marginBottom={5}

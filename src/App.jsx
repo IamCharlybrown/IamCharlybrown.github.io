@@ -38,7 +38,7 @@ function App() {
         p={{ base: 4, md: 8 }}
       >
         <Box
-          flex={{ base: "0 0 80%", md: "0 0 60%" }}
+          flex={{ base: "0 0 80%", md: "0 0 5 0%" }}
           textAlign="center"
           mb={{ base: 8, md: 0 }}
           mr={{ base: 0, md: 8 }}

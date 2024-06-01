@@ -8,7 +8,7 @@ export const proyects = [
   { 
     id: 1,
     img: "https://www.lacorformacion.com/wp-content/uploads/curso-por-defecto.jpg",
-    title: "Aprende useRef hook en React",
-    platform: "linkedIn Learning"
+    title: "Python para principiantes",
+    platform: "Udemy"
   },
-]
+]   
