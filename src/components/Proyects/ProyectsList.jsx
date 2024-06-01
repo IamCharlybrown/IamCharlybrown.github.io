@@ -1,6 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { ProyectContext } from "../../context/ProyectContext";
-import { DndContext, closestCenter } from "@dnd-kit/core";
+import {
+  DndContext,
+  closestCenter,
+  useSensors,
+  useSensor,
+  MouseSensor,
+} from "@dnd-kit/core";
 import {
   arrayMove,
   SortableContext,
@@ -9,11 +15,22 @@ import {
 import ProyectCard from "./ProyectCard";
 
 function ProyectList() {
+  //import context state
   const { proyects, setProyects } = useContext(ProyectContext);
 
+  //stablish a constraint to detect when the mouse moves the sortableItem, if not, the array keeps the same
+  const sensors = useSensors(
+    useSensor(MouseSensor, {
+      activationConstraint: {
+        distance: 10,
+      },
+    })
+  );
+
+  //when the user moves a sortableItem this hanlde the event
   function handleDragEnd(evt) {
     const { active, over } = evt;
-    
+
     setProyects((proyects) => {
       const oldIndex = proyects.findIndex(
         (proyect) => proyect.id === active.id
@@ -25,7 +42,11 @@ function ProyectList() {
   }
   return (
     <>
-      <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+      <DndContext
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}
+        sensors={sensors}
+      >
         <SortableContext
           strategy={verticalListSortingStrategy}
           items={proyects}
