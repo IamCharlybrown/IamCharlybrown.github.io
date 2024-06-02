@@ -4,12 +4,15 @@ import App from "./App.jsx";
 import "./index.css";
 import { SettingsContextProvider } from "./context/SettingsContext.jsx";
 import { ProyectContextProvider } from "./context/ProyectContext.jsx";
+import { NavBarContextProvider } from "./context/NavBarContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ProyectContextProvider>
       <SettingsContextProvider>
-        <App />
+        <NavBarContextProvider>
+          <App />
+        </NavBarContextProvider>
       </SettingsContextProvider>
     </ProyectContextProvider>
   </React.StrictMode>

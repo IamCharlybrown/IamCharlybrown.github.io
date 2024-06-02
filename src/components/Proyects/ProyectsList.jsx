@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { ProyectContext } from "../../context/ProyectContext";
 import {
   DndContext,
@@ -13,6 +13,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import ProyectCard from "./ProyectCard";
+
 
 function ProyectList() {
   //import context state

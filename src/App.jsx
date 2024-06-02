@@ -3,9 +3,8 @@ import { ChakraProvider, Box, Flex, Heading } from "@chakra-ui/react";
 import Timer from "./components/Timer/Timer";
 import Settings from "./components/Settings/Settings";
 import { SettingsContext } from "./context/SettingsContext";
-import ProyectList from "./components/Proyects/ProyectsList";
 import Clock from "./components/Clock";
-import ProyectForm from "./components/Proyects/ProyectForm";
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
   const { showSettings } = useContext(SettingsContext);
@@ -37,6 +36,7 @@ function App() {
         direction={{ base: "column", md: "row" }}
         p={{ base: 4, md: 8 }}
       >
+        {/* Pomodoro timer Box*/}
         <Box
           flex={{ base: "0 0 80%", md: "0 0 50%" }}
           textAlign="center"
@@ -48,14 +48,27 @@ function App() {
               Timer
             </Heading>
           )}
-          {showSettings ? <Box mx="auto" maxW="xl"><Settings/></Box>: <Box mx="auto" maxW="lg"><Timer /></Box>}
+          {showSettings ? (
+            <Box mx="auto" maxW="xl">
+              <Settings />
+            </Box>
+          ) : (
+            <Box mx="auto" maxW="lg">
+              <Timer />
+            </Box>
+          )}
         </Box>
+        {/* NavBar Box*/}
+
+        {/* Proyects Box*/}
         <Box
+          className="Proyects"
           flex={{ base: "0 0 80%", md: "0 0 50%" }}
           ml={{ base: 0, md: 0 }}
         >
-          <ProyectForm/>
-          <ProyectList />
+          <NavBar></NavBar>
+          {/* <ProyectForm />
+          <ProyectList /> */}
         </Box>
       </Flex>
       <footer></footer>
