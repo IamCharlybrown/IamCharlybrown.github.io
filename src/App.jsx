@@ -58,13 +58,18 @@ function App() {
             </Box>
           )}
         </Box>
-        {/* NavBar Box*/}
-
         {/* Proyects Box*/}
         <Box
           className="Proyects"
           flex={{ base: "0 0 80%", md: "0 0 50%" }}
           ml={{ base: 0, md: 0 }}
+          w={{ base: "100%", md: "50%" }} 
+          h={{ base: "auto", md: "100vh" }} 
+          maxH={{ base: "800px", md: "auto" }} // Max h
+          p={{ base: 2, md: 4 }} 
+          borderRadius="md"
+          boxShadow="md"
+          overflow="auto" // activates infinite scroll in component 
         >
           <NavBar></NavBar>
           {/* <ProyectForm />

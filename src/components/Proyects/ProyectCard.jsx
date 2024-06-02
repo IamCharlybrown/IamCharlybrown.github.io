@@ -25,7 +25,7 @@ function ProyectCard({ proyect }) {
 
   return (
     <Card
-    marginBottom={2}
+      marginBottom={2}
       ref={setNodeRef}
       style={style}
       {...attributes}
@@ -33,7 +33,7 @@ function ProyectCard({ proyect }) {
       direction={{ base: "column", sm: "row" }}
       overflow="hidden"
       variant="outline"
-      marginRight={{ base: 0, md: 200 }}
+      // marginRight={{ base: 0, md: 200 }}
     >
       <Image
         paddingTop={5}
