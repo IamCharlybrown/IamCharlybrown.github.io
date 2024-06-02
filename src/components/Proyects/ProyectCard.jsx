@@ -25,6 +25,7 @@ function ProyectCard({ proyect }) {
 
   return (
     <Card
+    marginBottom={2}
       ref={setNodeRef}
       style={style}
       {...attributes}

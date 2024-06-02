@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { ProyectContext } from "../../context/ProyectContext";
 import {
   DndContext,
@@ -13,6 +13,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import ProyectCard from "./ProyectCard";
+
 
 function ProyectList() {
   //import context state
@@ -52,7 +53,7 @@ function ProyectList() {
           items={proyects}
         >
           {proyects.map((proyect) => (
-            <ProyectCard key={proyect.title} proyect={proyect} />
+            <ProyectCard key={proyect.id} proyect={proyect} />
           ))}
         </SortableContext>
       </DndContext>

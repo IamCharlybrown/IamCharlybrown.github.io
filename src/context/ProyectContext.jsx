@@ -13,7 +13,7 @@ export function ProyectContextProvider(props) {
     setProyects((prevProyects) => [
       ...prevProyects,
       {
-        id: prevProyects.length,
+        id: prevProyects.length+1,
         title: title,
         platform: platform,
         img: "https://www.lacorformacion.com/wp-content/uploads/curso-por-defecto.jpg",
