@@ -2,6 +2,12 @@
 
 *agregar DND a las tareas
 
+*agregar páginación al componente proyects
+
+*agregar restriciones sobre cuantos cards se pueden agregar 
+
+*arreglar problemas de diseño responsivo
+
 *agregar componente de prioridad a las tareas
 
 *agregar la leyenda working y brake al temporizador

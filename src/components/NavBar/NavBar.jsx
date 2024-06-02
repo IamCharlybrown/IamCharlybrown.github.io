@@ -9,8 +9,8 @@ function NavBar() {
   return (
     <Tabs>
       <TabList mb="1em">
-        <Tab>Proyects</Tab>
-        <Tab>Tasks</Tab>
+        <Tab>Proyectos</Tab>
+        <Tab>Tareas</Tab>
       </TabList>
       <TabPanels>
         <TabPanel>

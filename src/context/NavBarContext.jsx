@@ -11,7 +11,7 @@ export function NavBarContextProvider(props) {
 
   function createTask(title){
     setTasks([...tasks, {
-      id: tasks.length,
+      id: tasks.length+1,
       title: title
     }])
   }

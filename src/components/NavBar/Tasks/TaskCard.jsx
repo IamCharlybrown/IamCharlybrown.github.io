@@ -42,6 +42,7 @@ function TaskCard({ task }) {
         <Flex alignItems="center" justifyContent="space-between">
           <Heading size="md">{task.title}</Heading>
           <Checkbox
+
             onChange={handleCheckboxClick}
             size="lg"
             sx={{

@@ -53,7 +53,7 @@ function ProyectList() {
           items={proyects}
         >
           {proyects.map((proyect) => (
-            <ProyectCard key={proyect.title} proyect={proyect} />
+            <ProyectCard key={proyect.id} proyect={proyect} />
           ))}
         </SortableContext>
       </DndContext>

@@ -27,7 +27,6 @@ function TasksForm() {
     e.preventDefault();
     createTask(title);
     setTitle("");
-    setPlatform("");
     setShowForm(!showForm);
   }
 
