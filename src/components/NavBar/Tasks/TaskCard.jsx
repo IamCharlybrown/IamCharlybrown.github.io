@@ -7,9 +7,11 @@ import {
   Heading,
   Flex,
   Checkbox,
+  Box,
 } from "@chakra-ui/react";
-import {CSS} from '@dnd-kit/utilities'
-import {useSortable} from '@dnd-kit/sortable'
+import { CSS } from "@dnd-kit/utilities";
+import { useSortable } from "@dnd-kit/sortable";
+import Priority from "./Priority/Priority";
 
 function TaskCard({ task }) {
   const { deleteTask } = useContext(NavBarContext);
@@ -36,13 +38,18 @@ function TaskCard({ task }) {
     transition,
   };
 
+
+ 
+
   return (
     <Card mt={2} ref={setNodeRef} style={style} {...attributes} {...listeners}>
       <CardHeader>
         <Flex alignItems="center" justifyContent="space-between">
-          <Heading size="md">{task.title}</Heading>
+          <Box display={"flex"}>
+            <Priority/>
+            <Heading size="md">{task.title}</Heading>
+          </Box>
           <Checkbox
-
             onChange={handleCheckboxClick}
             size="lg"
             sx={{

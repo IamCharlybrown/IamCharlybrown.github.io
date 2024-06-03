@@ -5,6 +5,6 @@ export const tasks = [
   },
   {
     id:2,
-    title:"crar un fetch al PokeAPI",
+    title:"Crear un fetch al PokeAPI",
   }
 ]
