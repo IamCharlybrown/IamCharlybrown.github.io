@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ProyectContext } from "../../context/ProyectContext";
+import { CursesContext } from "../../../context/CursesContext";
 import {
   Card,
   Image,
@@ -12,11 +12,11 @@ import {
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-function ProyectCard({ proyect }) {
-  const { deleteProyect } = useContext(ProyectContext);
+function CursesCard({curse}) {
+  const { deleteCurse } = useContext(CursesContext);
 
   const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: proyect.id });
+    useSortable({ id: curse.id });
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -41,19 +41,19 @@ function ProyectCard({ proyect }) {
         objectFit="cover"
         maxH={{ base: "100%", sm: "120px" }}
         maxW={{ base: "100%", sm: "200px" }}
-        src={proyect.img}
-        alt={proyect.title}
+        src={curse.img}
+        alt={curse.title}
       />
 
       <Stack>
         <CardBody>
-          <Heading size="md">{proyect.title}</Heading>
+          <Heading size="md">{curse.title}</Heading>
 
-          <Text py="2">{proyect.desc}</Text>
+          <Text py="2">{curse.platform}</Text>
           <Button variant="solid" colorScheme="blue" marginEnd={4}>
-            Planificar
+            Ir al curso
           </Button>
-          <Button colorScheme="red" onClick={() => deleteProyect(proyect.id)}>
+          <Button colorScheme="red" onClick={() => deleteCurse(curse.id)}>
             Eliminar
           </Button>
         </CardBody>
@@ -62,4 +62,4 @@ function ProyectCard({ proyect }) {
   );
 }
 
-export default ProyectCard;
+export default CursesCard

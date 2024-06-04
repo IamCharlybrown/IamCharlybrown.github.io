@@ -3,6 +3,7 @@ import React from 'react';
 function PriorityCircle({ color, onClick }) {
   return (
     <div 
+
       onClick={onClick} 
       style={{
         backgroundColor: color,
@@ -11,9 +12,9 @@ function PriorityCircle({ color, onClick }) {
         borderRadius: '50%',
         display: 'inline-block',
         cursor: 'pointer',
-        marginRight: '10px',
-        marginTop :'5px'
-
+        marginRight: '15px',
+        marginTop :'5px',
+       
       }}
     >
     </div>

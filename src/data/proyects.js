@@ -2,19 +2,14 @@ export const proyects = [
   { 
     id: 1,
     img: "https://www.lacorformacion.com/wp-content/uploads/curso-por-defecto.jpg",
-    title: "Aprende useRef hook en React",
-    platform: "linkedIn Learning"
+    title: "CRM Database design",
+    desc: "En dos semanas se desarrollará el diseño de la base de datos para la empresa..."
   },
   { 
     id: 2,
     img: "https://www.lacorformacion.com/wp-content/uploads/curso-por-defecto.jpg",
-    title: "Python para principiantes",
-    platform: "Udemy"
+    title: "Modulo 1 y 2 Python ",
+    desc: "Crear los primeros 2 módulos del curso para principiantes de python"
   },
-  { 
-    id: 3,
-    img: "https://www.lacorformacion.com/wp-content/uploads/curso-por-defecto.jpg",
-    title: "Ruby on rails desde 0",
-    platform: "ED team"
-  },
+  
 ]   

@@ -4,22 +4,29 @@ import ProyectForm from "../Proyects/ProyectForm";
 import ProyectList from "../Proyects/ProyectsList";
 import TasksList from "./Tasks/TasksList";
 import TasksForm from "./Tasks/TasksForm";
+import CursesForm from './Curses/CursesForm'
+import CursesList from "./Curses/CursesList";
 
 function NavBar() {
   return (
     <Tabs>
       <TabList mb="1em">
-        <Tab>Proyectos</Tab>
+        <Tab>Cursos</Tab>
         <Tab>Tareas</Tab>
+        <Tab>Proyectos {"(beta)"}</Tab>
       </TabList>
       <TabPanels>
         <TabPanel>
-          <ProyectForm></ProyectForm>
-          <ProyectList></ProyectList>
+          <CursesForm></CursesForm>
+          <CursesList></CursesList>
         </TabPanel>
         <TabPanel>
           <TasksForm></TasksForm>
           <TasksList></TasksList>
+        </TabPanel>
+        <TabPanel>
+          <ProyectForm></ProyectForm>
+          <ProyectList></ProyectList>
         </TabPanel>
       </TabPanels>
     </Tabs>

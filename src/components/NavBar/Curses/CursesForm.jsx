@@ -1,4 +1,7 @@
-import React, { useState, useContext } from "react";
+import {useContext, useState} from 'react'
+import CloseFormButton from "../../Proyects/CloseFormButton";
+import AddProyectButton from "../../Proyects/AddProyectButton";
+import { CursesContext } from "../../../context/CursesContext";
 import {
   Input,
   Stack,
@@ -8,27 +11,24 @@ import {
   Heading,
   Button,
 } from "@chakra-ui/react";
-import AddProyectButton from "./AddProyectButton";
-import CloseFormButton from "./CloseFormButton";
-import { ProyectContext } from "../../context/ProyectContext";
 
-function ProyectForm() {
-  const { createProyect } = useContext(ProyectContext);
+function CursesForm() {
+  const { createCurse } = useContext(CursesContext);
 
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(true);
 
   function handleShowForm() {
     setShowForm(!showForm);
   }
 
   const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
+  const [platform, setPlatform] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    createProyect(title, platform);
+    createCurse(title, platform);
     setTitle("");
-    setDesc("");
+    setPlatform("");
     setShowForm(!showForm);
   }
 
@@ -37,10 +37,10 @@ function ProyectForm() {
       <Box>
         <Flex alignItems="center" textAlign={{ base: "Center", md: "start" }}>
           <Heading as="h2" size="lg" className="text-2xl pb-2 font-semibold">
-            Crea un nuevo proyecto!
+           Agrega Tus cursos!
           </Heading>
           <Button
-            colorScheme={showForm ? "yellow" : "green"}
+            colorScheme={showForm ? "gray" : "green"}
             ml={4}
             onClick={handleShowForm}
           >
@@ -53,16 +53,16 @@ function ProyectForm() {
           <Box>
             <Input
               width={{ base: "100%", md: "79.8%" }}
-              placeholder="título del proyecto"
+              placeholder="título del curso"
               onChange={(e) => setTitle(e.target.value)}
               value={title}
               marginBottom={5}
             ></Input>
             <Textarea
               width={{ base: "100%", md: "79.8%" }}
-              placeholder="describe brevemente tu proyecto"
-              onChange={(e) => setDesc(e.target.value)}
-              value={desc}
+              placeholder="en que plataforma se encuentra?"
+              onChange={(e) => setPlatform(e.target.value)}
+              value={platform}
               marginBottom={5}
             ></Textarea>
             <Box>
@@ -79,4 +79,4 @@ function ProyectForm() {
   );
 }
 
-export default ProyectForm;
+export default CursesForm;
