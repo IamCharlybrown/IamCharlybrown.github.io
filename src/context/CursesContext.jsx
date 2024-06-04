@@ -10,13 +10,14 @@ export function CursesContextProvider(props) {
     setCurses(data);
   }, []);
 
-  function createCurse(title, platform) {
+  function createCurse(title, platform, url) {
     setCurses((prevCurses) => [
       ...prevCurses,
       {
         id: prevCurses.length + 1,
         title: title,
         platform: platform,
+        url: url,
         img: "https://www.lacorformacion.com/wp-content/uploads/curso-por-defecto.jpg",
       },
     ]);

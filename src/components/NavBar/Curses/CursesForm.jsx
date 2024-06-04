@@ -1,4 +1,4 @@
-import {useContext, useState} from 'react'
+import React, { useContext, useState } from "react";
 import CloseFormButton from "../../Proyects/CloseFormButton";
 import AddProyectButton from "../../Proyects/AddProyectButton";
 import { CursesContext } from "../../../context/CursesContext";
@@ -11,11 +11,12 @@ import {
   Heading,
   Button,
 } from "@chakra-ui/react";
+import DroppableComponent from "../../DroppableComponet";
 
 function CursesForm() {
   const { createCurse } = useContext(CursesContext);
 
-  const [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(false);
 
   function handleShowForm() {
     setShowForm(!showForm);
@@ -23,12 +24,14 @@ function CursesForm() {
 
   const [title, setTitle] = useState("");
   const [platform, setPlatform] = useState("");
+  const [url, setUrl] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    createCurse(title, platform);
+    createCurse(title, platform, url);
     setTitle("");
     setPlatform("");
+    setUrl("");
     setShowForm(!showForm);
   }
 
@@ -37,7 +40,7 @@ function CursesForm() {
       <Box>
         <Flex alignItems="center" textAlign={{ base: "Center", md: "start" }}>
           <Heading as="h2" size="lg" className="text-2xl pb-2 font-semibold">
-           Agrega Tus cursos!
+            Agrega Tus cursos!
           </Heading>
           <Button
             colorScheme={showForm ? "gray" : "green"}
@@ -53,18 +56,25 @@ function CursesForm() {
           <Box>
             <Input
               width={{ base: "100%", md: "79.8%" }}
-              placeholder="título del curso"
+              placeholder="Título del curso"
               onChange={(e) => setTitle(e.target.value)}
               value={title}
               marginBottom={5}
-            ></Input>
+            />
             <Textarea
               width={{ base: "100%", md: "79.8%" }}
-              placeholder="en que plataforma se encuentra?"
+              placeholder="En que plataforma se encuentra?"
               onChange={(e) => setPlatform(e.target.value)}
               value={platform}
               marginBottom={5}
-            ></Textarea>
+            />
+
+            <DroppableComponent
+              url={url}
+              setUrl={setUrl}
+              width={{ base: "100%", md: "79.8%" }}
+            />
+
             <Box>
               <Button colorScheme="green" type="submit">
                 Guardar

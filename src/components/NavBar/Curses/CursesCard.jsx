@@ -12,7 +12,7 @@ import {
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-function CursesCard({curse}) {
+function CursesCard({ curse }) {
   const { deleteCurse } = useContext(CursesContext);
 
   const { attributes, listeners, setNodeRef, transform, transition } =
@@ -22,6 +22,10 @@ function CursesCard({curse}) {
     transform: CSS.Transform.toString(transform),
     transition,
   };
+
+  function handleClick() {
+    window.open(curse.url, '_blank');
+  }
 
   return (
     <Card
@@ -50,7 +54,12 @@ function CursesCard({curse}) {
           <Heading size="md">{curse.title}</Heading>
 
           <Text py="2">{curse.platform}</Text>
-          <Button variant="solid" colorScheme="blue" marginEnd={4}>
+          <Button
+            variant="solid"
+            colorScheme="blue"
+            marginEnd={4}
+            onClick={handleClick}
+          >
             Ir al curso
           </Button>
           <Button colorScheme="red" onClick={() => deleteCurse(curse.id)}>
@@ -62,4 +71,4 @@ function CursesCard({curse}) {
   );
 }
 
-export default CursesCard
+export default CursesCard;
