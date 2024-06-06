@@ -37,6 +37,7 @@
         >
           <p>Arrastra / Escribe tu URL aquí!:</p>
           <input
+            name="url"
             type="text"
             value={url}
             onChange={(e) => setUrl(e.target.value)}

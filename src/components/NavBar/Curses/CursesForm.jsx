@@ -12,6 +12,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import DroppableComponent from "../../DroppableComponet";
+import ImageSelector from "./ImageSelector";
 
 function CursesForm() {
   const { createCurse } = useContext(CursesContext);
@@ -25,13 +26,15 @@ function CursesForm() {
   const [title, setTitle] = useState("");
   const [platform, setPlatform] = useState("");
   const [url, setUrl] = useState("");
+  const [img, setImg] = useState("https://www.lacorformacion.com/wp-content/uploads/curso-por-defecto.jpg")
 
   function handleSubmit(e) {
     e.preventDefault();
-    createCurse(title, platform, url);
+    createCurse(title, platform, url, img);
     setTitle("");
     setPlatform("");
     setUrl("");
+    setImg("");
     setShowForm(!showForm);
   }
 
@@ -43,7 +46,7 @@ function CursesForm() {
             Agrega Tus cursos!
           </Heading>
           <Button
-            colorScheme={showForm ? "gray" : "green"}
+            colorScheme={showForm ? "yellow" : "green"}
             ml={4}
             onClick={handleShowForm}
           >
@@ -55,6 +58,7 @@ function CursesForm() {
         <form onSubmit={handleSubmit}>
           <Box>
             <Input
+              name="title"
               width={{ base: "100%", md: "79.8%" }}
               placeholder="Título del curso"
               onChange={(e) => setTitle(e.target.value)}
@@ -62,6 +66,7 @@ function CursesForm() {
               marginBottom={5}
             />
             <Textarea
+              name="platform"
               width={{ base: "100%", md: "79.8%" }}
               placeholder="En que plataforma se encuentra?"
               onChange={(e) => setPlatform(e.target.value)}
@@ -73,6 +78,10 @@ function CursesForm() {
               url={url}
               setUrl={setUrl}
               width={{ base: "100%", md: "79.8%" }}
+            />
+            <ImageSelector
+              
+              setImg={setImg}
             />
 
             <Box>

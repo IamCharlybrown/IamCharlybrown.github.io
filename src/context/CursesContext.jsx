@@ -1,16 +1,19 @@
 import React, { useState, createContext, useEffect } from "react";
 import { curses as data } from "../data/curses";
+import { images } from "../data/curses-img";
 
 export const CursesContext = createContext({});
 
 export function CursesContextProvider(props) {
   const [curses, setCurses] = useState([]);
 
+  const curseImages = images
+
   useEffect(() => {
     setCurses(data);
   }, []);
 
-  function createCurse(title, platform, url) {
+  function createCurse(title, platform, url, img) {
     setCurses((prevCurses) => [
       ...prevCurses,
       {
@@ -18,7 +21,7 @@ export function CursesContextProvider(props) {
         title: title,
         platform: platform,
         url: url,
-        img: "https://www.lacorformacion.com/wp-content/uploads/curso-por-defecto.jpg",
+        img: img,
       },
     ]);
   }
@@ -33,7 +36,7 @@ export function CursesContextProvider(props) {
   }
   return (
     <CursesContext.Provider
-      value={{ curses, setCurses, createCurse, deleteCurse }}
+      value={{ curses, curseImages, setCurses, createCurse, deleteCurse }}
     >
       {props.children}
     </CursesContext.Provider>

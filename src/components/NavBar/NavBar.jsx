@@ -17,16 +17,16 @@ function NavBar() {
       </TabList>
       <TabPanels>
         <TabPanel>
-          <CursesForm></CursesForm>
-          <CursesList></CursesList>
+          <CursesForm/>
+          <CursesList/>
         </TabPanel>
         <TabPanel>
-          <TasksForm></TasksForm>
-          <TasksList></TasksList>
+          <TasksForm/>
+          <TasksList/>
         </TabPanel>
         <TabPanel>
-          <ProyectForm></ProyectForm>
-          <ProyectList></ProyectList>
+          <ProyectForm/>
+          <ProyectList/>
         </TabPanel>
       </TabPanels>
     </Tabs>

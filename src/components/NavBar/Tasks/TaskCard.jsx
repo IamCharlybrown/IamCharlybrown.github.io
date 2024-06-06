@@ -50,6 +50,7 @@ function TaskCard({ task }) {
             <Heading size="md">{task.title}</Heading>
           </Box>
           <Checkbox
+            name="checkbox-deleteTask"
             onChange={handleCheckboxClick}
             size="lg"
             sx={{
