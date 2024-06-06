@@ -1,17 +1,13 @@
-*Agregar Función al botón de planificar, donde se pueda configurar el tiempo total del curso y se pueda ver el porcentaje completado desde los proyectos.
+*Agregar Función al botón de planificar, donde se pueda configurar el tiempo total del curso y se pueda ver el porcentaje completado desde los cursos.
 
-*agregar DND a las tareas
-
-*agregar páginación al componente proyects
-
-*agregar restriciones sobre cuantos cards se pueden agregar 
-
-*arreglar problemas de diseño responsivo
-
-*agregar componente de prioridad a las tareas
+*agregar páginación al componente cursos
 
 *agregar la leyenda working y brake al temporizador
 
-*Poder cambiar la imagen de fondo de los proyectos 
+*agregar contador de tareas completadas 
+
+*agregar gráfica de tareas completadas por día
+
+*agregar local storage a priority tasks
 
 *EVENTUALMENTE IMPLEMENTAR DIRECTAMENTE LOS CURSOS CON LAS APIS DE UDEMY, LINKEDIN, EDTEAM, PLATZI
