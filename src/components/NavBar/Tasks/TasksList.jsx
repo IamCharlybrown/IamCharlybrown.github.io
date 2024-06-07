@@ -40,11 +40,11 @@ function TasksList() {
       onDragEnd={handleDragEnd}
     >
       <SortableContext strategy={verticalListSortingStrategy} items={tasks}>
-        <div>
-          {tasks.map((task) => (
-            <TaskCard key={task.id} task={task}></TaskCard>
-          ))}
-        </div>
+          <div>
+            {tasks.map((task) => (
+              <TaskCard key={task.id} task={task}></TaskCard>
+            ))}
+          </div>
       </SortableContext>
     </DndContext>
   );

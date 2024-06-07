@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext} from "react";
 import { NavBarContext } from "../../../context/NavBarContext";
 import {
   useToast,
@@ -7,12 +7,14 @@ import {
   Heading,
   Flex,
   Checkbox,
+  Box,
 } from "@chakra-ui/react";
-import {CSS} from '@dnd-kit/utilities'
-import {useSortable} from '@dnd-kit/sortable'
+import { CSS } from "@dnd-kit/utilities";
+import { useSortable } from "@dnd-kit/sortable";
+import Priority from "./Priority/Priority";
 
 function TaskCard({ task }) {
-  const { deleteTask } = useContext(NavBarContext);
+  const { deleteTask, updatePriority } = useContext(NavBarContext);
 
   const toast = useToast();
 
@@ -36,13 +38,22 @@ function TaskCard({ task }) {
     transition,
   };
 
+  const handlePriorityChange = (newPriority) => {
+    updatePriority(task.id, newPriority);
+  };
   return (
     <Card mt={2} ref={setNodeRef} style={style} {...attributes} {...listeners}>
       <CardHeader>
         <Flex alignItems="center" justifyContent="space-between">
-          <Heading size="md">{task.title}</Heading>
+          <Box display={"flex"}>
+            <Priority
+              color={task.priority}
+              onHandleColorChange={handlePriorityChange}
+            />
+            <Heading size="md">{task.title}</Heading>
+          </Box>
           <Checkbox
-
+            name="checkbox-deleteTask"
             onChange={handleCheckboxClick}
             size="lg"
             sx={{

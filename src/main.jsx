@@ -5,14 +5,17 @@ import "./index.css";
 import { SettingsContextProvider } from "./context/SettingsContext.jsx";
 import { ProyectContextProvider } from "./context/ProyectContext.jsx";
 import { NavBarContextProvider } from "./context/NavBarContext.jsx";
+import { CursesContextProvider } from "./context/CursesContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ProyectContextProvider>
       <SettingsContextProvider>
-        <NavBarContextProvider>
-          <App />
-        </NavBarContextProvider>
+        <CursesContextProvider>
+          <NavBarContextProvider>
+            <App />
+          </NavBarContextProvider>
+        </CursesContextProvider>
       </SettingsContextProvider>
     </ProyectContextProvider>
   </React.StrictMode>

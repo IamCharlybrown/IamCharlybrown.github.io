@@ -1,4 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
+import CloseFormButton from "../../Proyects/CloseFormButton";
+import AddProyectButton from "../../Proyects/AddProyectButton";
+import { CursesContext } from "../../../context/CursesContext";
 import {
   Input,
   Stack,
@@ -8,12 +11,11 @@ import {
   Heading,
   Button,
 } from "@chakra-ui/react";
-import AddProyectButton from "./AddProyectButton";
-import CloseFormButton from "./CloseFormButton";
-import { ProyectContext } from "../../context/ProyectContext";
+import DroppableComponent from "../../DroppableComponet";
+import ImageSelector from "./ImageSelector";
 
-function ProyectForm() {
-  const { createProyect } = useContext(ProyectContext);
+function CursesForm() {
+  const { createCurse } = useContext(CursesContext);
 
   const [showForm, setShowForm] = useState(false);
 
@@ -22,13 +24,17 @@ function ProyectForm() {
   }
 
   const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
+  const [platform, setPlatform] = useState("");
+  const [url, setUrl] = useState("");
+  const [img, setImg] = useState("https://www.lacorformacion.com/wp-content/uploads/curso-por-defecto.jpg")
 
   function handleSubmit(e) {
     e.preventDefault();
-    createProyect(title, platform);
+    createCurse(title, platform, url, img);
     setTitle("");
-    setDesc("");
+    setPlatform("");
+    setUrl("");
+    setImg("");
     setShowForm(!showForm);
   }
 
@@ -37,7 +43,7 @@ function ProyectForm() {
       <Box>
         <Flex alignItems="center" textAlign={{ base: "Center", md: "start" }}>
           <Heading as="h2" size="lg" className="text-2xl pb-2 font-semibold">
-            Crea un nuevo proyecto!
+            Agrega Tus cursos!
           </Heading>
           <Button
             colorScheme={showForm ? "yellow" : "green"}
@@ -52,19 +58,32 @@ function ProyectForm() {
         <form onSubmit={handleSubmit}>
           <Box>
             <Input
+              name="title"
               width={{ base: "100%", md: "79.8%" }}
-              placeholder="título del proyecto"
+              placeholder="Título del curso"
               onChange={(e) => setTitle(e.target.value)}
               value={title}
               marginBottom={5}
-            ></Input>
+            />
             <Textarea
+              name="platform"
               width={{ base: "100%", md: "79.8%" }}
-              placeholder="describe brevemente tu proyecto"
-              onChange={(e) => setDesc(e.target.value)}
-              value={desc}
+              placeholder="En que plataforma se encuentra?"
+              onChange={(e) => setPlatform(e.target.value)}
+              value={platform}
               marginBottom={5}
-            ></Textarea>
+            />
+
+            <DroppableComponent
+              url={url}
+              setUrl={setUrl}
+              width={{ base: "100%", md: "79.8%" }}
+            />
+            <ImageSelector
+              
+              setImg={setImg}
+            />
+
             <Box>
               <Button colorScheme="green" type="submit">
                 Guardar
@@ -79,4 +98,4 @@ function ProyectForm() {
   );
 }
 
-export default ProyectForm;
+export default CursesForm;

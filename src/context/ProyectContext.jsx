@@ -9,13 +9,13 @@ export function ProyectContextProvider(props) {
     setProyects(data);
   }, []);
 
-  function createProyect(title, platform) {
+  function createProyect(title, desc) {
     setProyects((prevProyects) => [
       ...prevProyects,
       {
         id: prevProyects.length+1,
         title: title,
-        platform: platform,
+        desc: desc,
         img: "https://www.lacorformacion.com/wp-content/uploads/curso-por-defecto.jpg",
       },
     ]);
