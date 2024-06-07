@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export const SettingsContext = createContext({});
 
@@ -7,8 +8,8 @@ export function SettingsContextProvider(props) {
   const [showSettings, setShowSettings] = useState(false);
 
   //state of work and break mins configurated in settings
-  const [workMinutes, setWorkMinutes] = useState(25);
-  const [breakMinutes, setBreakMinutes] = useState(5);
+  const [workMinutes, setWorkMinutes] = useLocalStorage("workMinutes", 25);
+  const [breakMinutes, setBreakMinutes] = useLocalStorage("breakeMinutes", 5);
 
   //handler to show settings
   function settingsMenu() {

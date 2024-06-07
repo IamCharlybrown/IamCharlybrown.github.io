@@ -1,15 +1,30 @@
 import React from "react";
 import PriorityCircle from "./PriorityCircle";
 
-function PriorityMenu({ onPriorityChange }) {
+function PriorityMenu({ onHandlePriorityChange }) {
   return (
     <div>
-      <PriorityCircle color="green" onClick={() => onPriorityChange("green")} />
+      <PriorityCircle
+        color="green"
+        onClick={(e) => {
+          e.preventDefault();
+          onHandlePriorityChange("green");
+        }}
+      />
       <PriorityCircle
         color="yellow"
-        onClick={() => onPriorityChange("yellow")}
+        onClick={(e) => {
+          e.preventDefault();
+          onHandlePriorityChange("yellow");
+        }}
       />
-      <PriorityCircle color="red" onClick={() => onPriorityChange("red")} />
+      <PriorityCircle
+        color="red"
+        onClick={(e) => {
+          e.preventDefault();
+          onHandlePriorityChange("red");
+        }}
+      />
     </div>
   );
 }

@@ -1,31 +1,28 @@
 import React, { useState, useContext } from "react";
-import {
-  Input,
-  Stack,
-  Box,
-  Textarea,
-  Flex,
-  Heading,
-  Button,
-} from "@chakra-ui/react";
+import { Input, Stack, Box, Flex, Heading, Button } from "@chakra-ui/react";
 import AddProyectButton from "../../Proyects/AddProyectButton";
 import CloseFormButton from "../../Proyects/CloseFormButton";
 import { NavBarContext } from "../../../context/NavBarContext";
+import Priority from "./Priority/Priority";
 
 function TasksForm() {
   const { createTask } = useContext(NavBarContext);
-
   const [showForm, setShowForm] = useState(false);
+  const [color, setColor] = useState("gray");
+  const [title, setTitle] = useState("");
 
-  function handleShowForm() {
+  function handleShowForm(e) {
+    e.preventDefault();
     setShowForm(!showForm);
   }
 
-  const [title, setTitle] = useState("");
+  function handleColorChange(mode) {
+    setColor(mode);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-    createTask(title);
+    createTask(title, color);
     setTitle("");
     setShowForm(!showForm);
   }
@@ -56,8 +53,10 @@ function TasksForm() {
               onChange={(e) => setTitle(e.target.value)}
               value={title}
               marginBottom={5}
+              marginRight={5}
             ></Input>
 
+            <Priority onHandleColorChange={handleColorChange} color={color} />
             <Box>
               <Button colorScheme="green" type="submit">
                 Guardar
@@ -65,11 +64,10 @@ function TasksForm() {
             </Box>
           </Box>
         </form>
-      ) : (
-        <></>
-      )}
+      ) : null}
     </Stack>
   );
 }
 
 export default TasksForm;
+

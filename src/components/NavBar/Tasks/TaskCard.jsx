@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavBarContext } from "../../../context/NavBarContext";
 import {
   useToast,
@@ -14,7 +14,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import Priority from "./Priority/Priority";
 
 function TaskCard({ task }) {
-  const { deleteTask } = useContext(NavBarContext);
+  const { deleteTask, updatePriority } = useContext(NavBarContext);
 
   const toast = useToast();
 
@@ -38,15 +38,18 @@ function TaskCard({ task }) {
     transition,
   };
 
-
- 
-
+  const handlePriorityChange = (newPriority) => {
+    updatePriority(task.id, newPriority);
+  };
   return (
     <Card mt={2} ref={setNodeRef} style={style} {...attributes} {...listeners}>
       <CardHeader>
         <Flex alignItems="center" justifyContent="space-between">
           <Box display={"flex"}>
-            <Priority/>
+            <Priority
+              color={task.priority}
+              onHandleColorChange={handlePriorityChange}
+            />
             <Heading size="md">{task.title}</Heading>
           </Box>
           <Checkbox

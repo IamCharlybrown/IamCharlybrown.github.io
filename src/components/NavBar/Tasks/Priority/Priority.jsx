@@ -1,29 +1,31 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import PriorityCircle from "./PriorityCircle";
 import PriorityMenu from "./PriorityMenu";
 
-function Priority() {
-  const [PriorityMode, setPriorityMode] = useState("gray");
+function Priority({ onHandleColorChange, color }) {
+  
   const [showPriority, setShowPriority] = useState(false);
 
-  function handleClick() {
+  function handleClick(e) {
+    e.preventDefault();
     setShowPriority(!showPriority);
   }
 
   function handlePriorityChange(mode) {
-    setPriorityMode(mode);
+    onHandleColorChange(mode);
     setShowPriority(false);
   }
 
   return (
     <button onClick={handleClick}>
       {showPriority ? (
-        <PriorityMenu onPriorityChange={handlePriorityChange} />
+        <PriorityMenu onHandlePriorityChange={handlePriorityChange} />
       ) : (
-        <PriorityCircle color={PriorityMode} />
+        <PriorityCircle color={color} />
       )}
     </button>
   );
 }
 
 export default Priority;
+
