@@ -6,8 +6,8 @@ function PriorityCircle({ color, onClick }) {
       onClick={onClick}
       style={{
         backgroundColor: color,
-        width: 20,
-        height: 20,
+        width: 17,
+        height: 17,
         borderRadius: "50%",
         display: "inline-block",
         cursor: "pointer",

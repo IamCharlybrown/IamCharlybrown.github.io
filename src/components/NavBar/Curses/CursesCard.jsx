@@ -34,10 +34,9 @@ function CursesCard({ curse }) {
       style={style}
       {...attributes}
       {...listeners}
-      direction={{ base: "column", sm: "row" }}
+      direction={{ base: "column", sm: "row", md:"row" }}
       overflow="hidden"
       variant="outline"
-      // marginRight={{ base: 0, md: 200 }}
     >
       <Image
         paddingTop={5}

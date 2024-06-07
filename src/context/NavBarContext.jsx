@@ -22,7 +22,7 @@ export function NavBarContextProvider(props) {
         priority: color
       },
     ]);
-    console.log(color)
+   
   }
 
   function deleteTask(taskID) {

@@ -73,9 +73,11 @@ function Timer() {
         value={percentage}
         text={minutes + ":" + seconds}
         styles={buildStyles({
-          textColor: mode === "work" ? "#0267C1" : "#D65108",
-          pathColor: mode === "work" ? "#0267C1" : "#D65108",
+          textColor: mode === "work" ? "#FFF" : "#FFF",
+          pathColor: mode === "work" ? "#9333EA" : "#6AC639",
           tailColor: "rgba(255,255,255,.2)",
+          textSize: 20
+          
         })}
       />
       <div className="flex justify-center">

@@ -17,10 +17,11 @@ function App() {
           color="white"
           p="1.5"
           px="5"
+          py="3"
           fontSize={{ base: "2xl", md: "3xl" }}
           textAlign="center"
           w="100%"
-          bgColor="#EFA00B"
+          bgColor="#000000"
         >
           <Flex align="center" justify="center">
             <Clock />
@@ -34,46 +35,46 @@ function App() {
         justify="center"
         h={{ base: "auto", md: "100vh" }}
         direction={{ base: "column", md: "row" }}
-        p={{ base: 4, md: 8 }}
       >
-        {/* Pomodoro timer Box*/}
+        {/* Pomodoro timer Box */}
         <Box
-          flex={{ base: "0 0 80%", md: "0 0 50%" }}
+          className="bg-gradient-to-r from-purple-500 to-pink-500"
+          w={{ base: "100%", md: "50%" }}
+          h={{ base: "auto", md: "100vh" }}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="flex-start"
           textAlign="center"
-          mb={{ base: 8, md: 0 }}
-          mr={{ base: 0, md: 8 }}
+          py={8}
         >
-          {!showSettings && (
-            <Heading as="h1" size="xl" mb="4">
-              Timer
-            </Heading>
-          )}
           {showSettings ? (
-            <Box mx="auto" maxW="xl">
+            <Box mx="auto" maxW="xl"  className="flex flex-col items-center justify-center h-full size-full">
               <Settings />
             </Box>
           ) : (
-            <Box mx="auto" maxW="lg">
+            <Box mx="auto" maxW="xl"  className="flex flex-col items-center justify-center h-full size-full p-6 md:p-6 lg:p-6 xl:p-0">
+              <Heading as="h1" size="2xl" mb="4" textColor={"white"} >
+              Timer
+            </Heading>
               <Timer />
             </Box>
           )}
         </Box>
-        {/* Proyects Box*/}
+        {/* Proyects Box */}
         <Box
           className="Proyects"
           flex={{ base: "0 0 80%", md: "0 0 50%" }}
           ml={{ base: 0, md: 0 }}
-          w={{ base: "100%", md: "50%" }} 
-          h={{ base: "auto", md: "100vh" }} 
-          maxH={{ base: "800px", md: "auto" }} // Max h
-          p={{ base: 2, md: 4 }} 
+          w={{ base: "100%", md: "50%" }}
+          h={{ base: "auto", md: "100vh" }}
+          maxH={{ base: "950px", md: "auto" }} // Max h
+          p={{ base: 2, md: 4 }}
           borderRadius="md"
           boxShadow="md"
-          overflow="auto" // activates infinite scroll in component 
+          overflow="auto" // activates infinite scroll in component
         >
-          <NavBar></NavBar>
-          {/* <ProyectForm />
-          <ProyectList /> */}
+          <NavBar />
         </Box>
       </Flex>
       <footer></footer>

@@ -56,41 +56,47 @@ function CursesForm() {
       </Box>
       {showForm ? (
         <form onSubmit={handleSubmit}>
+        <Box>
+          <label className="block text-gray-800 font-semibold"> Título del curso</label>
+          <Input
+            name="title"
+            width={{ base: "100%", md: "79.8%" }}
+            placeholder="Título del curso"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+            marginBottom={5}
+            bg="white"
+            border="1px solid #ccc"
+            _hover={{ border: "1px solid #888" }}
+            _focus={{ border: "1px solid #555", boxShadow: "0 0 5px rgba(81, 203, 238, 1)" }}
+          />
+          <label className="block text-gray-800 font-semibold"> Plataforma</label>
+          <Textarea
+            name="platform"
+            width={{ base: "100%", md: "79.8%" }}
+            placeholder="En qué plataforma se encuentra?"
+            onChange={(e) => setPlatform(e.target.value)}
+            value={platform}
+            marginBottom={5}
+            bg="white"
+            border="1px solid #ccc"
+            _hover={{ border: "1px solid #888" }}
+            _focus={{ border: "1px solid #555", boxShadow: "0 0 5px rgba(81, 203, 238, 1)" }}
+          />
+          <DroppableComponent
+            url={url}
+            setUrl={setUrl}
+            width={{ base: "100%", md: "79.8%" }}
+          />
+          <ImageSelector setImg={setImg} />
           <Box>
-            <Input
-              name="title"
-              width={{ base: "100%", md: "79.8%" }}
-              placeholder="Título del curso"
-              onChange={(e) => setTitle(e.target.value)}
-              value={title}
-              marginBottom={5}
-            />
-            <Textarea
-              name="platform"
-              width={{ base: "100%", md: "79.8%" }}
-              placeholder="En que plataforma se encuentra?"
-              onChange={(e) => setPlatform(e.target.value)}
-              value={platform}
-              marginBottom={5}
-            />
-
-            <DroppableComponent
-              url={url}
-              setUrl={setUrl}
-              width={{ base: "100%", md: "79.8%" }}
-            />
-            <ImageSelector
-              
-              setImg={setImg}
-            />
-
-            <Box>
-              <Button colorScheme="green" type="submit">
-                Guardar
-              </Button>
-            </Box>
+            <Button colorScheme="green" type="submit">
+              Guardar
+            </Button>
           </Box>
-        </form>
+        </Box>
+      </form>
+      
       ) : (
         <></>
       )}
