@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useContext } from "react";
 import { ChakraProvider, Box, Flex, Heading } from "@chakra-ui/react";
 import Timer from "./components/Timer/Timer";
@@ -8,6 +9,25 @@ import NavBar from "./components/NavBar/NavBar";
 
 function App() {
   const { showSettings } = useContext(SettingsContext);
+
+  //Dimesión de pantalla
+  useEffect(() => {
+    // Obtener el tamaño de la pantalla del dispositivo
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
+
+    // Calcular el 75% del tamaño de la pantalla
+    const width = screenWidth * 0.75;
+    const height = screenHeight * 0.75;
+
+    // Calcular la posición para centrar la ventana
+    const left = (screenWidth - width) / 2;
+    const top = (screenHeight - height) / 2;
+
+    // Redimensionar y mover la ventana
+    window.resizeTo(width, height);
+    window.moveTo(left, top);
+  }, []);
 
   return (
     <ChakraProvider>
