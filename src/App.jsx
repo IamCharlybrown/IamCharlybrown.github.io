@@ -63,7 +63,8 @@ function App() {
         </Box>
         {/* Proyects Box */}
         <Box
-          className="Proyects"
+          as="nav"
+          className="Navbar"
           flex={{ base: "0 0 80%", md: "0 0 50%" }}
           ml={{ base: 0, md: 0 }}
           w={{ base: "100%", md: "50%" }}

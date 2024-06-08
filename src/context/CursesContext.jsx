@@ -11,7 +11,7 @@ export function CursesContextProvider(props) {
 
   useEffect(() => {
     if (curses.length === 0) {
-      setCurses(data);
+     return
     }
   }, [curses, setCurses]);
 

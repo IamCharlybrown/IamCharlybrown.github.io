@@ -17,7 +17,7 @@ export function NavBarContextProvider(props) {
     setTasks([
       ...tasks,
       {
-        id: tasks.length + 1,
+        id: tasks.length + 2,
         title: title,
         priority: color
       },

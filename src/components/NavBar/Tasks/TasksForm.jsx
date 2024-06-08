@@ -47,6 +47,7 @@ function TasksForm() {
         <form onSubmit={handleSubmit}>
           <Box>
             <Input
+              required
               name="taskTitle"
               width={{ base: "100%", md: "79.8%" }}
               placeholder="En que nos vamos a enfocar hoy?"

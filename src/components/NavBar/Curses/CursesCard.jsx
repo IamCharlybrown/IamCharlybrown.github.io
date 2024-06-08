@@ -8,9 +8,11 @@ import {
   Button,
   Heading,
   Text,
+  Box,
 } from "@chakra-ui/react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { PlayIcon, TrashIcon } from "@heroicons/react/16/solid";
 
 function CursesCard({ curse }) {
   const { deleteCurse } = useContext(CursesContext);
@@ -24,7 +26,7 @@ function CursesCard({ curse }) {
   };
 
   function handleClick() {
-    window.open(curse.url, '_blank');
+    window.open(curse.url, "_blank");
   }
 
   return (
@@ -34,7 +36,7 @@ function CursesCard({ curse }) {
       style={style}
       {...attributes}
       {...listeners}
-      direction={{ base: "column", sm: "row", md:"row" }}
+      direction={{ base: "column", sm: "row", md: "row" }}
       overflow="hidden"
       variant="outline"
     >
@@ -59,10 +61,16 @@ function CursesCard({ curse }) {
             marginEnd={4}
             onClick={handleClick}
           >
-            Ir al curso
+            <Box display={"flex"}>
+              <PlayIcon height={20}></PlayIcon>
+              <Text marginStart={2}>Ir al curso</Text>
+            </Box>
           </Button>
           <Button colorScheme="red" onClick={() => deleteCurse(curse.id)}>
-            Eliminar
+            <Box display={"flex"}>
+              <TrashIcon height={20}></TrashIcon>
+              <Text marginStart={2}>Eliminar</Text>
+            </Box>
           </Button>
         </CardBody>
       </Stack>
