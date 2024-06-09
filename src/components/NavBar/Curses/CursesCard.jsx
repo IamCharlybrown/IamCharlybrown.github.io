@@ -9,6 +9,14 @@ import {
   Heading,
   Text,
   Box,
+  useToast,
+  useDisclosure,
+  Modal,
+  ModalHeader,
+  ModalOverlay,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
 } from "@chakra-ui/react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -17,6 +25,9 @@ import { PlayIcon, TrashIcon } from "@heroicons/react/16/solid";
 function CursesCard({ curse }) {
   const { deleteCurse } = useContext(CursesContext);
 
+  const toast = useToast();
+  const { isOpen, onClose, onOpen } = useDisclosure();
+
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: curse.id });
 
@@ -24,6 +35,16 @@ function CursesCard({ curse }) {
     transform: CSS.Transform.toString(transform),
     transition,
   };
+
+  function handleToast() {
+    toast({
+      title: "Curso Eliminado",
+      position: "top",
+      status: "success",
+      duration: 1500,
+    });
+    setTimeout(() => deleteCurse(curse.id), 700);
+  }
 
   function handleClick() {
     window.open(curse.url, "_blank");
@@ -66,12 +87,26 @@ function CursesCard({ curse }) {
               <Text marginStart={2}>Ir al curso</Text>
             </Box>
           </Button>
-          <Button colorScheme="red" onClick={() => deleteCurse(curse.id)}>
+          <Button colorScheme="red" onClick={onOpen}>
             <Box display={"flex"}>
               <TrashIcon height={20}></TrashIcon>
               <Text marginStart={2}>Eliminar</Text>
             </Box>
           </Button>
+
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>Quieres Eliminar el curso?</ModalHeader>
+              <ModalCloseButton />
+              <ModalFooter>
+                <Button onClick={onClose} mx={2}>
+                  Cerrar
+                </Button>
+                <Button colorScheme="red" onClick={handleToast}>Eliminar</Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
         </CardBody>
       </Stack>
     </Card>

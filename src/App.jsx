@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useContext } from "react";
+import { useEffect, useContext } from "react";
 import { ChakraProvider, Box, Flex, Heading } from "@chakra-ui/react";
 import Timer from "./components/Timer/Timer";
 import Settings from "./components/Settings/Settings";
@@ -69,14 +68,22 @@ function App() {
           py={8}
         >
           {showSettings ? (
-            <Box mx="auto" maxW="xl"  className="flex flex-col items-center justify-center h-full size-full">
+            <Box
+              mx="auto"
+              maxW="xl"
+              className="flex flex-col items-center justify-center h-full size-full"
+            >
               <Settings />
             </Box>
           ) : (
-            <Box mx="auto" maxW="xl"  className="flex flex-col items-center justify-center h-full size-full p-6 md:p-6 lg:p-6 xl:p-0">
-              <Heading as="h1" size="2xl" mb="4" textColor={"white"} >
-              Timer
-            </Heading>
+            <Box
+              mx="auto"
+              maxW="xl"
+              className="flex flex-col items-center justify-center h-full size-full p-6 md:p-6 lg:p-6 xl:p-0"
+            >
+              <Heading as="h1" size="2xl" mb="4" textColor={"white"}>
+                Timer
+              </Heading>
               <Timer />
             </Box>
           )}

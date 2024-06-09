@@ -38,7 +38,6 @@ function NavBar() {
         <TabPanel>
           <CursesForm />
           <CursesList />
-          <FinishedCurses/>
         </TabPanel>
         <TabPanel>
           <TasksForm />
