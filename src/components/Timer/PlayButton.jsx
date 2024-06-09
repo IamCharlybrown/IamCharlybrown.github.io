@@ -7,7 +7,8 @@ function PlayButton(props) {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
-        className="size-12"
+        className="size-20"
+        
       >
         <path
           fillRule="evenodd"

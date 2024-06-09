@@ -13,6 +13,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import CursesCard from "./CursesCard";
+import { Box } from "@chakra-ui/react";
 
 function CursesList() {
   //import context state
@@ -45,11 +46,16 @@ function CursesList() {
         onDragEnd={handleDragEnd}
         sensors={sensors}
       >
-        <SortableContext strategy={verticalListSortingStrategy} items={curses}>
-          {curses.map((curse) => (
-            <CursesCard key={curse.id} curse={curse} />
-          ))}
-        </SortableContext>
+        <Box>
+          <SortableContext
+            strategy={verticalListSortingStrategy}
+            items={curses}
+          >
+            {curses.map((curse) => (
+              <CursesCard key={curse.id} curse={curse} />
+            ))}
+          </SortableContext>
+        </Box>
       </DndContext>
     </>
   );

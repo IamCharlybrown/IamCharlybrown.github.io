@@ -8,12 +8,25 @@ import {
   Button,
   Heading,
   Text,
+  Box,
+  useToast,
+  useDisclosure,
+  Modal,
+  ModalHeader,
+  ModalOverlay,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
 } from "@chakra-ui/react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { PlayIcon, TrashIcon } from "@heroicons/react/16/solid";
 
 function CursesCard({ curse }) {
   const { deleteCurse } = useContext(CursesContext);
+
+  const toast = useToast();
+  const { isOpen, onClose, onOpen } = useDisclosure();
 
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: curse.id });
@@ -23,8 +36,18 @@ function CursesCard({ curse }) {
     transition,
   };
 
+  function handleToast() {
+    toast({
+      title: "Curso Eliminado",
+      position: "top",
+      status: "success",
+      duration: 1500,
+    });
+    setTimeout(() => deleteCurse(curse.id), 700);
+  }
+
   function handleClick() {
-    window.open(curse.url, '_blank');
+    window.open(curse.url, "_blank");
   }
 
   return (
@@ -34,10 +57,9 @@ function CursesCard({ curse }) {
       style={style}
       {...attributes}
       {...listeners}
-      direction={{ base: "column", sm: "row" }}
+      direction={{ base: "column", sm: "row", md: "row" }}
       overflow="hidden"
       variant="outline"
-      // marginRight={{ base: 0, md: 200 }}
     >
       <Image
         paddingTop={5}
@@ -60,11 +82,31 @@ function CursesCard({ curse }) {
             marginEnd={4}
             onClick={handleClick}
           >
-            Ir al curso
+            <Box display={"flex"}>
+              <PlayIcon height={20}></PlayIcon>
+              <Text marginStart={2}>Ir al curso</Text>
+            </Box>
           </Button>
-          <Button colorScheme="red" onClick={() => deleteCurse(curse.id)}>
-            Eliminar
+          <Button colorScheme="red" onClick={onOpen}>
+            <Box display={"flex"}>
+              <TrashIcon height={20}></TrashIcon>
+              <Text marginStart={2}>Eliminar</Text>
+            </Box>
           </Button>
+
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>Quieres Eliminar el curso?</ModalHeader>
+              <ModalCloseButton />
+              <ModalFooter>
+                <Button onClick={onClose} mx={2}>
+                  Cerrar
+                </Button>
+                <Button colorScheme="red" onClick={handleToast}>Eliminar</Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
         </CardBody>
       </Stack>
     </Card>

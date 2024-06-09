@@ -13,7 +13,7 @@ function SettingsButton(props) {
         viewBox="0 0 24 24"
         strokeWidth="1.5"
         stroke="currentColor"
-        className="size-12"
+        className="size-20"
       >
         <path
         

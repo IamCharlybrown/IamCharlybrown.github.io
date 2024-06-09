@@ -26,7 +26,7 @@ function ProyectForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    createProyect(title, platform);
+    createProyect(title, desc);
     setTitle("");
     setDesc("");
     setShowForm(!showForm);

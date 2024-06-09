@@ -27,7 +27,7 @@ function TaskCard({ task }) {
       isClosable: true,
     });
 
-    setTimeout(() => deleteTask(task.id), 1500);
+    setTimeout(() => deleteTask(task.id), 700);
   };
 
   const { attributes, listeners, setNodeRef, transform, transition } =

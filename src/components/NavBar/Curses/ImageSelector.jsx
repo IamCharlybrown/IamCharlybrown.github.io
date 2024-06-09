@@ -10,6 +10,7 @@ function ImageSelector({ setImg }) {
 
   return (
     <Card
+     
       marginBottom={2}
       direction={"row"}
       overflow="hidden"
