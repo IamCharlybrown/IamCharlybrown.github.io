@@ -35,7 +35,7 @@ function MenuComponent() {
             <Link to="/progress-stats">Crear Ejercicio</Link>
           </Menu.Item>
           <Menu.Item key="5" style={{ color: "#ffffff" }}>
-            <Link to="/exercise-categories">Perfil</Link>
+            <Link to="/perfil">Perfil</Link>
           </Menu.Item>
           <Menu.Item key="6" style={{ color: "#ffffff" }}>
             <Link to="/workout-notes">Actualizar Progreso</Link>
