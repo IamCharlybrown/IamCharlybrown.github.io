@@ -3,12 +3,10 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./routes/Home";
-import Dashboard from "./routes/Dashboard";
 import CreateRoutine from "./routes/CreateRoutine";
 import CrearEjercicio from "./routes/CrearEjercicio";
 import Perfil from "./routes/Perfil";
 import LogIn from './routes/LogIn'
-
 import Settings from "./routes/Settings";
 import Calendar from './routes/Calendar'
 
@@ -28,7 +26,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: <CreateRoutine />,
   },
   {
     path: "/create-routine",
