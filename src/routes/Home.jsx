@@ -89,7 +89,7 @@ const Home = () => {
               }}
             >
               <MonthlyProgress />
-              {/* <MonthlyProgress /> */}
+              {/* <MonthlyProgress 1/> */}
             </div>
 
             <div
